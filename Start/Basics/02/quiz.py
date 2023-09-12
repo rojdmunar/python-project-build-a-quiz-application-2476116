@@ -5,11 +5,20 @@
 class Quiz:
     def __init__(self):
         #TODO: define the quiz properties
-        pass
+        self.name = ""
+        self.description = ""
+        self.questions = []
+        self.score = 0
+        self.correct_count
+        self.total_points = 0
 
     def print_header(self):
         print("\n\n*******************************************")
         #TODO: print the quiz header
+        printf(f"QUIZ NAME: {self.name}")
+        printf(f"DESCRIPTION: {self.descriptions}")
+        printf(f"QUESTIONS: {self.questions}")
+        printf(f"TOTAL POINTS: {self.total_points}")
         print("*******************************************\n")
 
     def print_results(self):
@@ -19,13 +28,23 @@ class Quiz:
 
     def take_quiz(self):
         #TODO: initialize the quiz state
-
+        self.score = 0
+        self.correct_count = 0
+        for q in self.questions:
+            q.is_correct = False
+            
         #TODO: print the header
-
+        self.print_header()
+        
         #TODO: execute each question and record the result
-
+        for q in self.questions:
+            q.ask()
+            if (q.is_correct):
+                self.correct_count += 1
+                self.score += q.points
+        print("*******************************************\n")
         #TODO: return the results
-        pass
+        return(self.score, self.correct_count, self.total_points)
 
 
 class Question:
