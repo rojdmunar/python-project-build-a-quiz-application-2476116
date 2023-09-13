@@ -3,7 +3,7 @@
 import datetime
 import sys
 #TODO: import the "random" module
-
+import random
 class Quiz:
     def __init__(self):
         self.name = ""
@@ -44,7 +44,7 @@ class Quiz:
         self.print_header()
 
         # TODO: randomize the questions
-
+        random.shuffle(self.questions)
 
         # execute each question and record the result
         for q in self.questions:
