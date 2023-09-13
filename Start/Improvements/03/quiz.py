@@ -64,7 +64,17 @@ class Quiz:
         endtime = datetime.datetime.now()
 
         # TODO: ask the user if they want to re-do any incorrect questions
-
+        if self.correct_count != len(self.questions):
+            response = input("\nIt looks like you missed some questions. Re-do the wrong ones? (y/n) ").lower()
+            if response[0] == "y":
+                wrong_qs = [q for q in self.questions if q.is_correct == False]
+                 for q in wrong.qs:
+                    q.ask()
+                    if (q.is_correct):
+                        self.correct_count += 1
+                        self.score += q.points
+                    print("------------------------------------------------\n")
+                 endtime = datetime.datetime.now()
         self.completion_time = endtime - starttime
         self.completion_time = datetime.timedelta(seconds=round(self.completion_time.total_seconds()))
 
